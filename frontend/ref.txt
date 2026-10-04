@@ -1,0 +1,64 @@
+Chào bạn, qua việc xem xét cấu trúc code và cách bạn sử dụng Tailwind CSS trong dự án **Dine-Ease**, tôi thấy giao diện của bạn đang được build rất chi tiết và đẹp mắt. Tuy nhiên, việc lạm dụng quá nhiều utility classes inline (như các nút bấm dài 3-4 dòng class) sẽ khiến file phình to và khó bảo trì sau này.
+
+Đúng như yêu cầu "chưa cần code vội", dưới đây là **chiến lược 5 bước để refactor CSS/Tailwind** cho dự án của bạn gọn gàng, chuẩn form và dễ scale hơn:
+
+---
+
+### 1. Tận dụng tối đa Component (Componentization) thay vì viết thẻ HTML thô
+**Vấn đề hiện tại:** Bạn đã cấu hình sẵn thư mục `components/ui` với các file như `button.tsx`, `input.tsx`, `card.tsx` (dùng thư viện `cva` rất chuẩn). **Nhưng** trong các trang (ví dụ `admin/page.tsx` hay `restaurant/pos/page.tsx`), bạn lại đang dùng thẻ `<button className="...">` với hàng tá class lặp đi lặp lại.
+
+**Hướng refactor:**
+*   Quét toàn bộ project, thay thế các thẻ `<button>`, `<input>` thô bằng `<Button>`, `<Input>` từ `components/ui`.
+*   Ví dụ: Thay vì viết một nút "Lưu thay đổi" dài dằng dặc:
+    `className="px-8 py-3.5 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600 transition-all shadow-lg active:scale-95 uppercase text-xs tracking-widest"`
+*   Hãy định nghĩa các style này vào file `button.tsx` thông qua `cva` (thêm size `xl`, variant `primary`, `uppercase`) và gọi gọn lỏn:
+    `<Button variant="primary" size="xl" uppercase>LƯU THAY ĐỔI</Button>`
+
+### 2. Chuẩn hóa Design System vào `tailwind.config.ts`
+**Vấn đề hiện tại:** Bạn đang hardcode rất nhiều màu hệ thống (ví dụ: `amber-500` cho primary, `stone-800` cho text chính, `stone-50` cho background). Nếu sếp yêu cầu đổi màu chủ đạo sang Cam (`orange`) hoặc Đỏ, bạn sẽ phải Find & Replace hàng ngàn dòng code.
+
+**Hướng refactor:**
+*   Đưa các màu này thành Semantic Colors (Màu ngữ nghĩa) trong `tailwind.config.ts`.
+*   Ví dụ:
+    *   `primary: colors.amber`
+    *   `surface: colors.white`
+    *   `background: colors.stone[50]`
+    *   `brand-dark: colors.stone[800]`
+*   Lúc này, trong code thay vì viết `bg-amber-500 text-stone-800`, bạn chỉ cần viết `bg-primary-500 text-brand-dark`.
+
+### 3. Tối ưu hóa các Component dùng chung (Shared UI) bằng `cva`
+**Vấn đề hiện tại:** Trong các file như `StatusBadge.tsx` hay `ActionIconButton.tsx`, bạn đang dùng Record object (`variantStyles`, `dotColors`) để map class. Cách này không sai, nhưng khi class quá dài nó sẽ rối và khó quản lý các trạng thái hover/focus.
+
+**Hướng refactor:**
+*   Sử dụng `cva` (Class Variance Authority) tương tự như cách bạn làm ở `button.tsx`.
+*   `cva` giúp bạn quản lý các "biến thể" (variants) cực kì gọn gàng. Bạn có thể định nghĩa variant `success`, `warning`, `danger` cho `StatusBadge` trực tiếp trong `cva`, kết hợp chung với `cn()` để code đọc vào là hiểu ngay logic.
+
+### 4. Gộp nhóm class cấu trúc (Layout Wrappers)
+**Vấn đề hiện tại:** Rất nhiều container bao ngoài các trang có chuỗi class lặp lại y hệt nhau.
+Ví dụ: `className="bg-white/80 backdrop-blur-xl p-8 rounded-4xl border border-white/40 shadow-sm"` xuất hiện rất nhiều ở phần thẻ thống kê hoặc biểu đồ.
+
+**Hướng refactor:**
+*   **Cách 1 (Khuyên dùng):** Tạo một component `<GlassCard>` (bạn đã có file này nhưng chưa áp dụng triệt để). Hãy wrap các khối nội dung vào `<GlassCard>` thay vì viết lại class.
+*   **Cách 2:** Đưa vào `globals.css` thông qua `@apply`.
+    ```css
+    @layer components {
+      .glass-panel {
+        @apply bg-white/80 backdrop-blur-xl rounded-4xl border border-white/40 shadow-sm;
+      }
+    }
+    ```
+    *(Lưu ý: Chỉ dùng `@apply` cho các layout tĩnh, không dùng cho các component có logic động).*
+
+### 5. Sử dụng công cụ tự động dọn dẹp (Linter/Formatter)
+*   Cài đặt plugin **`prettier-plugin-tailwindcss`**: Plugin này sẽ tự động sắp xếp lại vị trí các class Tailwind theo đúng chuẩn quy tắc của họ (VD: class layout đứng trước, typography đứng sau, hover/focus đứng cuối cùng). Điều này giúp mắt bạn quét class nhanh hơn rất nhiều khi review code.
+*   Tránh để class inline làm rối HTML: Đối với các thẻ `div` phức tạp, có thể bóc tách class ra một hằng số bên ngoài component (ví dụ: `const cardClasses = "..."`).
+
+---
+
+**Tóm tắt lộ trình (Roadmap) nếu bạn muốn thực hiện:**
+1. Cấu hình lại `tailwind.config.ts` (màu sắc, spacing, border-radius).
+2. Nâng cấp các file trong thư mục `components/ui/` (Button, Card, Badge) để bao quát hết các style bạn đang dùng inline.
+3. Thay thế dần các thẻ HTML thô trong `app/admin/...` và `app/restaurant/...` bằng Component UI.
+4. Xóa bỏ các đoạn class inline thừa mứa.
+
+Bạn thấy hướng tiếp cận này hợp lý với tư duy của bạn không? Nếu ok, chúng ta có thể bắt đầu bóc tách và refactor từng file một ở các prompt tiếp theo.

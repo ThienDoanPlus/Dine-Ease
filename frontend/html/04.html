@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dine Ease - Danh sách Nhà hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2318;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(45, 35, 24, 0.05);
+        }
+        .sidebar-item-active {
+            background-color: #f59e0b;
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E7E5E4;
+            border-radius: 10px;
+        }
+        .table-row-hover:hover {
+            background-color: rgba(245, 158, 11, 0.03);
+        }
+        /* Toggle Switch Style */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 22px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #E7E5E4;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; width: 16px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: #f59e0b; }
+        input:checked + .slider:before { transform: translateX(22px); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-stone-100 flex flex-col h-screen sticky top-0 z-50 shrink-0">
+        <div class="p-6 flex items-center gap-3">
+            <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-[#2D2318]">Dine Ease</span>
+        </div>
+
+        <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto custom-scrollbar">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-amber-600 hover:bg-amber-50 rounded-xl transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                <span class="font-medium">Tổng quan</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-amber-600 hover:bg-amber-50 rounded-xl transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+                <span class="font-medium">Duyệt đối tác</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item-active rounded-xl transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>
+                <span class="font-medium">QL Nhà hàng</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-amber-600 hover:bg-amber-50 rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 11 6a7 7 0 0 1 0 14Z"/><path d="M11 9v4"/><path d="M11 17h.01"/><path d="M20 15v2a2 2 0 0 1-2 2H2"/><path d="M4 11V9a2 2 0 0 1 2-2h10"/></svg>
+                <span class="font-medium">DM Cuisine</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+        
+        <!-- Header -->
+        <header class="h-20 glass-nav flex items-center justify-between px-8 shrink-0">
+            <div class="relative w-full max-w-md">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+                <input type="text" placeholder="Tìm kiếm nhà hàng, mã đơn..." class="w-full bg-stone-50 border border-stone-100 rounded-xl py-2.5 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-amber-200">
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <button class="relative p-2 text-stone-500 hover:bg-stone-50 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+                    </button>
+                    <div class="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                        <span class="text-[11px] font-bold text-green-600 uppercase">Online</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 border-l pl-6 border-stone-100">
+                    <p class="text-sm font-bold text-stone-800">Admin User</p>
+                    <div class="w-10 h-10 rounded-full bg-stone-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="Admin">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+            
+            <!-- Page Heading & Action -->
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h1 class="text-2xl font-black text-[#2D2318] uppercase tracking-tight">Danh sách nhà hàng</h1>
+                    <p class="text-stone-500 text-sm mt-1">Quản lý và cấu hình thông tin các đối tác nhà hàng đang hoạt động trên hệ thống.</p>
+                </div>
+                <button class="flex items-center gap-2 px-6 py-3 bg-stone-800 text-white rounded-xl font-bold hover:bg-stone-900 transition-all shadow-lg shadow-stone-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                    Thêm nhà hàng mới
+                </button>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="bg-white p-4 rounded-2xl border border-stone-100 shadow-sm flex flex-wrap items-center gap-4 mb-6">
+                <div class="relative flex-1 min-w-[240px]">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </span>
+                    <input type="text" placeholder="Nhập tên nhà hàng, ID..." class="w-full text-sm bg-stone-50 border border-stone-100 rounded-xl py-2 pl-10 pr-4 focus:ring-2 focus:ring-amber-200 focus:outline-none">
+                </div>
+                
+                <select class="text-sm bg-stone-50 border border-stone-100 rounded-xl py-2 px-4 focus:outline-none min-w-[160px]">
+                    <option>Trạng thái: Tất cả</option>
+                    <option>Đang hoạt động</option>
+                    <option>Tạm ngưng</option>
+                </select>
+
+                <select class="text-sm bg-stone-50 border border-stone-100 rounded-xl py-2 px-4 focus:outline-none min-w-[160px]">
+                    <option>Cuisine: Tất cả</option>
+                    <option>Hải Sản</option>
+                    <option>Món Việt</option>
+                    <option>Món Nhật</option>
+                </select>
+
+                <button class="px-4 py-2 text-sm font-bold text-stone-500 hover:text-red-500 transition-colors">Xóa bộ lọc</button>
+            </div>
+
+            <!-- Table -->
+            <div class="bg-white rounded-2xl border border-stone-100 shadow-sm overflow-hidden">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-stone-800 text-white text-[11px] uppercase tracking-widest font-bold">
+                            <th class="py-4 px-6 w-16">ID</th>
+                            <th class="py-4 px-6">Tên Nhà Hàng</th>
+                            <th class="py-4 px-6">Hoa hồng</th>
+                            <th class="py-4 px-6">Đánh giá</th>
+                            <th class="py-4 px-6">Trạng thái HĐ</th>
+                            <th class="py-4 px-6 text-center">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-100">
+                        <!-- Row Template -->
+                        <tr class="table-row-hover transition-colors">
+                            <td class="py-5 px-6 text-sm font-mono text-stone-400">1</td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-stone-100 overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=64&h=64&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-stone-800">Hải Sản Biển Đông</p>
+                                        <p class="text-[10px] text-stone-400 font-medium">Tag: Seafood, Fresh</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-5 px-6 font-bold text-sm text-stone-700">15.0%</td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center gap-1.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <span class="text-sm font-bold">4.8</span>
+                                </div>
+                            </td>
+                            <td class="py-5 px-6">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="p-2 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-lg transition-all" title="Chỉnh sửa">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    </button>
+                                    <button class="p-2 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all" title="Khóa">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="table-row-hover transition-colors">
+                            <td class="py-5 px-6 text-sm font-mono text-stone-400">2</td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-stone-100 overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=64&h=64&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-stone-800">Sushi Hokkaido Sachi</p>
+                                        <p class="text-[10px] text-stone-400 font-medium">Tag: Japanese, Sushi</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-5 px-6 font-bold text-sm text-stone-700">18.0%</td>
+                            <td class="py-5 px-6"><div class="flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="text-sm font-bold">4.5</span></div></td>
+                            <td class="py-5 px-6"><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="p-2 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-lg transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="table-row-hover transition-colors">
+                            <td class="py-5 px-6 text-sm font-mono text-stone-400">3</td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-stone-100 overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=64&h=64&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-stone-800">Bò Né 3 Ngon</p>
+                                        <p class="text-[10px] text-stone-400 font-medium">Tag: Street Food</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-5 px-6 font-bold text-sm text-stone-700">12.5%</td>
+                            <td class="py-5 px-6"><div class="flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="text-sm font-bold">4.9</span></div></td>
+                            <td class="py-5 px-6"><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="p-2 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-lg transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 4 (Inactive example) -->
+                        <tr class="table-row-hover bg-stone-50/30 transition-colors">
+                            <td class="py-5 px-6 text-sm font-mono text-stone-400">4</td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-stone-100 overflow-hidden flex-shrink-0 grayscale">
+                                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=64&h=64&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-stone-400">Lẩu Cua Đất Mũi</p>
+                                        <p class="text-[10px] text-stone-300 font-medium italic">Trạng thái: Tạm ngưng</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-5 px-6 font-bold text-sm text-stone-400">15.0%</td>
+                            <td class="py-5 px-6"><div class="flex items-center gap-1.5 opacity-50"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-stone-400 fill-stone-400" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="text-sm font-bold">4.6</span></div></td>
+                            <td class="py-5 px-6"><label class="switch"><input type="checkbox"><span class="slider"></span></label></td>
+                            <td class="py-5 px-6">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="p-2 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-lg transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2 text-red-500 bg-red-50 rounded-lg transition-all shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="px-8 py-5 flex items-center justify-between border-t border-stone-100">
+                    <p class="text-sm text-stone-400">Hiển thị <span class="font-bold text-stone-800">1 - 10</span> của <span class="font-bold text-stone-800">128</span> nhà hàng</p>
+                    
+                    <div class="flex items-center gap-1.5">
+                        <button class="px-4 py-2 text-xs font-bold text-stone-400 hover:text-stone-800 bg-stone-50 rounded-xl transition-all">Trước</button>
+                        <div class="flex items-center gap-1 mx-2">
+                            <button class="w-9 h-9 rounded-xl bg-amber-500 text-white font-bold text-sm shadow-lg shadow-amber-200">1</button>
+                            <button class="w-9 h-9 rounded-xl text-stone-500 hover:bg-stone-50 font-bold text-sm">2</button>
+                            <span class="text-stone-300 mx-1">...</span>
+                            <button class="w-9 h-9 rounded-xl text-stone-500 hover:bg-stone-50 font-bold text-sm">13</button>
+                        </div>
+                        <button class="px-6 py-2 text-xs font-bold text-white bg-stone-800 rounded-xl hover:bg-stone-900 shadow-md transition-all">Sau</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

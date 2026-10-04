@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dine Ease - Chi tiết hồ sơ #1042</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2318;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(45, 35, 24, 0.05);
+        }
+        .sidebar-item-active {
+            background-color: #f59e0b;
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E7E5E4;
+            border-radius: 10px;
+        }
+        .info-label {
+            color: #78716c;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-value {
+            color: #2D2318;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        /* Hide scrollbar for horizontal lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-stone-100 flex flex-col h-screen sticky top-0 z-50 shrink-0 hidden md:flex">
+        <div class="p-6 flex items-center gap-3">
+            <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-[#2D2318]">Dine Ease</span>
+        </div>
+
+        <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto custom-scrollbar">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-amber-600 hover:bg-amber-50 rounded-xl transition-all duration-200 group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                <span class="font-medium">Tổng quan</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item-active rounded-xl transition-all duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+                <span class="font-medium">Duyệt đối tác</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-amber-600 hover:bg-amber-50 rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>
+                <span class="font-medium">QL Nhà hàng</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+        
+        <!-- Header -->
+        <header class="h-20 glass-nav flex items-center justify-between px-8 shrink-0">
+            <button class="flex items-center gap-2 px-4 py-2 text-stone-600 bg-stone-100 hover:bg-stone-200 rounded-xl transition-all font-semibold text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+                Quay lại danh sách
+            </button>
+
+            <div class="flex items-center gap-6">
+                <div class="w-px h-8 bg-stone-200"></div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <p class="text-sm font-bold text-stone-800">Administrator</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-stone-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="Admin">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto p-4 lg:p-8 custom-scrollbar bg-[#FDFBF7]">
+            
+            <div class="mb-6 flex justify-between items-end">
+                <div>
+                    <h1 class="text-2xl lg:text-3xl font-extrabold text-[#2D2318] tracking-tight">Chi tiết hồ sơ đối tác</h1>
+                    <p class="text-stone-500 mt-1 text-sm">Mã hồ sơ: <b class="text-stone-700">#1042</b> • Gửi lúc: 24/10/2026 14:30</p>
+                </div>
+            </div>
+
+            <!-- Layout 30% - 70% -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Cột trái (30%): Thông tin cốt lõi (Avatar, Tên, Trạng thái, Liên hệ) -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white rounded-[2rem] border border-stone-100 shadow-sm overflow-hidden relative">
+                        <!-- Cover gradient -->
+                        <div class="h-32 bg-gradient-to-r from-amber-400 to-orange-500 relative">
+                            <!-- Overlay pattern -->
+                            <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIyIiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPg==')]"></div>
+                        </div>
+                        
+                        <div class="px-6 pb-8 relative text-center">
+                            <!-- Big Avatar -->
+                            <div class="w-28 h-28 mx-auto rounded-full border-4 border-white bg-stone-200 absolute -top-14 left-1/2 -translate-x-1/2 shadow-xl overflow-hidden z-10">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=400&fit=crop" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <div class="pt-20 text-center"> 
+                                <h2 class="text-2xl font-black text-stone-800 tracking-tight leading-tight">
+                                    Hải Sản Biển Đông
+                                </h2>
+                                
+                                <!-- Rating UI -->
+                                <div class="flex justify-center items-center gap-2 mt-2">
+                                    <span class="text-amber-500 font-extrabold text-lg">4.8 sao</span>
+                                    <div class="flex gap-1 text-amber-400">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 text-stone-200 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    </div>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="mt-4 pb-5 border-b border-stone-100 flex justify-center">
+                                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase bg-amber-50 text-amber-600 border border-amber-200">
+                                        <span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                                        Trạng thái: Chờ duyệt
+                                    </span>
+                                </div>
+
+                                <!-- Quick Contact -->
+                                <div class="mt-5 space-y-4 text-left px-2">
+                                    <div class="flex items-center gap-3 text-stone-600">
+                                        <div class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-stone-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-[11px] uppercase tracking-wider text-stone-400 font-bold">Chủ sở hữu</p>
+                                            <p class="font-semibold text-stone-800 text-sm">Nguyễn Văn A</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-stone-600">
+                                        <div class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-stone-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-[11px] uppercase tracking-wider text-stone-400 font-bold">Số điện thoại</p>
+                                            <p class="font-semibold text-stone-800 text-sm">0901 234 567</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-stone-600">
+                                        <div class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-stone-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-[11px] uppercase tracking-wider text-stone-400 font-bold">Email</p>
+                                            <p class="font-semibold text-amber-600 text-sm">anguyen@email.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột phải (70%): Card-based Layout & Hệ thống Tabs -->
+                <div class="lg:col-span-8 flex flex-col gap-6">
+                    
+                    <!-- Tabs Navigation -->
+                    <div class="bg-white p-1.5 rounded-2xl border border-stone-100 shadow-sm flex flex-wrap md:flex-nowrap gap-1">
+                        <button id="btn-tab-info" onclick="switchTab('info')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold bg-[#2D2318] text-white transition-all shadow-md">Thông tin cơ bản</button>
+                        <button id="btn-tab-legal" onclick="switchTab('legal')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">Tài liệu pháp lý</button>
+                        <button id="btn-tab-menu" onclick="switchTab('menu')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">Thực đơn</button>
+                    </div>
+
+                    <!-- Tabs Content Container -->
+                    <div class="bg-white p-6 lg:p-8 rounded-[2rem] border border-stone-100 shadow-sm flex-1 min-h-[400px]">
+                        
+                        <!-- TAB 1: THÔNG TIN CƠ BẢN -->
+                        <div id="tab-info" class="tab-content block animate-[fadeIn_0.3s_ease-in-out]">
+                            <h2 class="text-lg font-bold text-stone-800 mb-6">Chi tiết hoạt động</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                <div class="md:col-span-2 space-y-1">
+                                    <p class="info-label">Địa chỉ kinh doanh</p>
+                                    <p class="info-value flex items-start gap-2 bg-stone-50 p-3 rounded-xl border border-stone-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        123 Đường Bờ Biển, Phường Phước Mỹ, Quận Sơn Trà, TP. Đà Nẵng
+                                    </p>
+                                </div>
+                                <div class="space-y-1 bg-stone-50 p-4 rounded-xl border border-stone-100">
+                                    <p class="info-label">Loại hình (Cuisine)</p>
+                                    <p class="info-value mt-1">Hải Sản, Món Việt</p>
+                                </div>
+                                <div class="space-y-1 bg-stone-50 p-4 rounded-xl border border-stone-100">
+                                    <p class="info-label">Giờ hoạt động dự kiến</p>
+                                    <div class="text-sm font-bold space-y-1 mt-1 text-stone-800">
+                                        <p>T2 - T6: <span class="text-amber-600">10:00 - 22:00</span></p>
+                                        <p>T7, CN: <span class="text-amber-600">09:00 - 23:00</span></p>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-2 space-y-1 pt-2">
+                                    <p class="info-label mb-2">Mô tả ngắn</p>
+                                    <p class="text-sm text-stone-600 leading-relaxed bg-amber-50/50 p-5 rounded-2xl border-l-4 border-amber-400">
+                                        "Hải sản tươi sống bắt tại bè, không gian thoáng mát sức chứa 500 khách. Phù hợp tiệc công ty, gia đình, có phòng VIP riêng tư nhìn ra biển."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: TÀI LIỆU PHÁP LÝ (Style dạng PDF Thumbnail Icon) -->
+                        <div id="tab-legal" class="tab-content hidden animate-[fadeIn_0.3s_ease-in-out]">
+                            <h2 class="text-lg font-bold text-stone-800 mb-6">Hồ sơ đính kèm</h2>
+                            
+                            <div class="flex flex-wrap gap-6">
+                                <!-- Card Tài liệu 1 -->
+                                <div class="w-48 bg-[#FDFBF7] border-2 border-stone-100 hover:border-amber-300 rounded-[1.5rem] p-6 flex flex-col items-center justify-center gap-4 transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer group">
+                                    <!-- PDF Icon -->
+                                    <div class="w-16 h-20 bg-white shadow-sm border border-stone-200 rounded-lg relative flex items-center justify-center group-hover:bg-amber-50 transition-colors">
+                                        <div class="absolute top-2 right-2 w-4 h-1 bg-red-400 rounded-full"></div>
+                                        <div class="absolute top-4 right-2 w-6 h-1 bg-stone-200 rounded-full"></div>
+                                        <div class="absolute top-6 right-2 w-5 h-1 bg-stone-200 rounded-full"></div>
+                                        <span class="font-black text-stone-300 text-xl tracking-tighter mt-4 group-hover:text-amber-200 transition-colors">PDF</span>
+                                    </div>
+                                    <div class="text-center space-y-1.5">
+                                        <p class="text-sm font-bold text-stone-800 line-clamp-2 leading-tight">Giấy phép kinh doanh</p>
+                                        <p class="text-xs text-amber-600 font-semibold flex items-center justify-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                            Xem chi tiết
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Card Tài liệu 2 -->
+                                <div class="w-48 bg-[#FDFBF7] border-2 border-stone-100 hover:border-amber-300 rounded-[1.5rem] p-6 flex flex-col items-center justify-center gap-4 transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer group">
+                                    <!-- PDF Icon -->
+                                    <div class="w-16 h-20 bg-white shadow-sm border border-stone-200 rounded-lg relative flex items-center justify-center group-hover:bg-amber-50 transition-colors">
+                                        <div class="absolute top-2 right-2 w-4 h-1 bg-red-400 rounded-full"></div>
+                                        <div class="absolute top-4 right-2 w-6 h-1 bg-stone-200 rounded-full"></div>
+                                        <div class="absolute top-6 right-2 w-5 h-1 bg-stone-200 rounded-full"></div>
+                                        <span class="font-black text-stone-300 text-xl tracking-tighter mt-4 group-hover:text-amber-200 transition-colors">PDF</span>
+                                    </div>
+                                    <div class="text-center space-y-1.5">
+                                        <p class="text-sm font-bold text-stone-800 line-clamp-2 leading-tight">Chứng nhận VSATTP</p>
+                                        <p class="text-xs text-amber-600 font-semibold flex items-center justify-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                            Xem chi tiết
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3: THỰC ĐƠN DỰ KIẾN (Style Lưới hình ảnh ngon mắt) -->
+                        <div id="tab-menu" class="tab-content hidden animate-[fadeIn_0.3s_ease-in-out]">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-lg font-bold text-stone-800">Thực đơn nổi bật</h2>
+                                <span class="text-xs font-bold px-3 py-1 bg-stone-100 text-stone-500 rounded-lg">6 Món</span>
+                            </div>
+
+                            <!-- Menu Grid Scrollable -->
+                            <div class="flex gap-4 overflow-x-auto pb-6 no-scrollbar snap-x">
+                                
+                                <!-- Menu Item 1 -->
+                                <div class="w-40 shrink-0 bg-white rounded-[1.5rem] p-3 border border-stone-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all group snap-start cursor-pointer">
+                                    <div class="w-full aspect-square rounded-2xl bg-stone-100 overflow-hidden mb-3">
+                                        <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=300&h=300&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    </div>
+                                    <div class="text-center pb-2">
+                                        <p class="text-[10px] text-stone-500 uppercase tracking-widest font-bold mb-1">Món chính</p>
+                                        <h3 class="text-stone-800 font-bold text-sm truncate px-1">Tôm Hùm Phô Mai</h3>
+                                        <p class="text-amber-600 font-black mt-1 text-sm">1.250.000 đ</p>
+                                    </div>
+                                </div>
+
+                                <!-- Menu Item 2 -->
+                                <div class="w-40 shrink-0 bg-white rounded-[1.5rem] p-3 border border-stone-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all group snap-start cursor-pointer">
+                                    <div class="w-full aspect-square rounded-2xl bg-stone-100 overflow-hidden mb-3">
+                                        <img src="https://images.unsplash.com/photo-1534604973900-c41ab4c287ba?w=300&h=300&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    </div>
+                                    <div class="text-center pb-2">
+                                        <p class="text-[10px] text-stone-500 uppercase tracking-widest font-bold mb-1">Món khai vị</p>
+                                        <h3 class="text-stone-800 font-bold text-sm truncate px-1">Mực Xào Sa Tế</h3>
+                                        <p class="text-amber-600 font-black mt-1 text-sm">180.000 đ</p>
+                                    </div>
+                                </div>
+
+                                <!-- Menu Item 3 -->
+                                <div class="w-40 shrink-0 bg-white rounded-[1.5rem] p-3 border border-stone-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all group snap-start cursor-pointer">
+                                    <div class="w-full aspect-square rounded-2xl bg-stone-100 overflow-hidden mb-3">
+                                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=300&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    </div>
+                                    <div class="text-center pb-2">
+                                        <p class="text-[10px] text-stone-500 uppercase tracking-widest font-bold mb-1">Món chính</p>
+                                        <h3 class="text-stone-800 font-bold text-sm truncate px-1">Lẩu Thái Hải Sản</h3>
+                                        <p class="text-amber-600 font-black mt-1 text-sm">450.000 đ</p>
+                                    </div>
+                                </div>
+
+                                <!-- Menu Item 4 -->
+                                <div class="w-40 shrink-0 bg-white rounded-[1.5rem] p-3 border border-stone-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all group snap-start cursor-pointer">
+                                    <div class="w-full aspect-square rounded-2xl bg-stone-100 overflow-hidden mb-3">
+                                        <img src="https://images.unsplash.com/photo-1626074961596-f942ba63f0bb?w=300&h=300&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    </div>
+                                    <div class="text-center pb-2">
+                                        <p class="text-[10px] text-stone-500 uppercase tracking-widest font-bold mb-1">Món chính</p>
+                                        <h3 class="text-stone-800 font-bold text-sm truncate px-1">Cua Cà Mau Rang Me</h3>
+                                        <p class="text-amber-600 font-black mt-1 text-sm">650.000 đ</p>
+                                    </div>
+                                </div>
+
+                                <!-- Menu Item 5 -->
+                                <div class="w-40 shrink-0 bg-white rounded-[1.5rem] p-3 border border-stone-100 hover:border-amber-200 shadow-sm hover:shadow-xl transition-all group snap-start cursor-pointer">
+                                    <div class="w-full aspect-square rounded-2xl bg-stone-100 overflow-hidden mb-3">
+                                        <img src="https://images.unsplash.com/photo-1563805042-7684c8e9e5cb?w=300&h=300&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    </div>
+                                    <div class="text-center pb-2">
+                                        <p class="text-[10px] text-stone-500 uppercase tracking-widest font-bold mb-1">Tráng miệng</p>
+                                        <h3 class="text-stone-800 font-bold text-sm truncate px-1">Panna Cotta Dâu</h3>
+                                        <p class="text-amber-600 font-black mt-1 text-sm">65.000 đ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nút hành động ở cuối trang -->
+            <div class="mt-8 mb-10 flex flex-wrap items-center justify-end gap-4 p-6 bg-white rounded-[2rem] shadow-sm border border-stone-100">
+                <button class="px-8 py-3.5 bg-orange-50 text-orange-600 rounded-xl font-bold hover:bg-orange-100 transition-all flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    Yêu cầu bổ sung
+                </button>
+                <button class="px-8 py-3.5 bg-red-50 text-red-600 rounded-xl font-bold hover:bg-red-100 transition-all">
+                    Từ chối hồ sơ
+                </button>
+                <button class="px-8 py-3.5 bg-green-500 text-white rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-200 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Phê duyệt nhà hàng
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script xử lý Tabs -->
+    <script>
+        function switchTab(tabId) {
+            // Lấy tất cả buttons và contents
+            const tabs = ['info', 'legal', 'menu'];
+            
+            tabs.forEach(t => {
+                const btn = document.getElementById(`btn-tab-${t}`);
+                const content = document.getElementById(`tab-${t}`);
+                
+                if (t === tabId) {
+                    // Kích hoạt tab được chọn
+                    btn.className = "flex-1 py-3 px-4 rounded-xl text-sm font-bold bg-[#2D2318] text-white transition-all shadow-md";
+                    content.classList.remove('hidden');
+                    content.classList.add('block');
+                } else {
+                    // Tắt các tab khác
+                    btn.className = "flex-1 py-3 px-4 rounded-xl text-sm font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all";
+                    content.classList.remove('block');
+                    content.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
