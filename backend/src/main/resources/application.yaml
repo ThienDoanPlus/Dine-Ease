@@ -1,0 +1,124 @@
+server:
+  port: ${PORT:8090}
+
+spring:
+  datasource:
+    # Tự động tạo database 'dineease' nếu chưa có
+    url: ${DB_URL:jdbc:mysql://localhost:3306/dineease?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}        # Mặc định của XAMPP/MySQL là root
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    open-in-view: false
+    hibernate:
+      # 'update' giúp tự động tạo bảng từ các file Entity (User, Cuisine...) bạn đã viết
+      ddl-auto: update
+    show-sql: true        # In các câu lệnh SQL ra console để dễ theo dõi
+    properties:
+      hibernate:
+        format_sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: nguyenthiendoan2@gmail.com
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  
+  # Cấu hình để Spring Boot không tự động cấu hình OpenAIAutoConfiguration
+  ai: 
+    openai:
+      api-key: ${OPENAI_API_KEY:dummy-key}
+      # API Key dùng cho Embedding (Vẫn trỏ về OpenAI nhưng có thể đang hết tiền)
+      embedding:
+        api-key: ${OPENAI_API_KEY}
+        options:
+          model: text-embedding-3-small
+      
+      # API Key dùng cho Chat (Trỏ về Groq)
+      chat:
+        api-key: ${GROQ_API_KEY}
+        base-url: https://api.groq.com/openai/v1
+        options:
+          model: llama3-8b-8192
+          temperature: 0.3
+    
+    # Tạm thời tắt Local Embedding bằng DJL vì lỗi native library trên Mac M1/M2/M3
+    embedding:
+      transformers:
+        enabled: false
+
+  # Cấu hình để Spring Boot không tự động cấu hình TransformersEmbeddingModelAutoConfiguration để tránh lỗi DJL
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.model.transformers.autoconfigure.TransformersEmbeddingModelAutoConfiguration
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  
+  config:
+    import: "optional:file:.env[.properties]"
+
+
+
+  # sql:
+  #   init:
+  #     mode: always # Luôn chạy file data.sql khi start server
+
+  sql:
+    init:
+      mode: never
+      # Cực kỳ quan trọng: Ép Spring Boot đọc file SQL bằng UTF-8 để không bị lỗi font tiếng Việt
+      encoding: UTF-8 
+      # Khai báo đọc lần lượt các file theo thứ tự:
+      data-locations: 
+        - classpath:db/01-clear-db.sql
+        - classpath:db/02-master-data-and-users.sql
+        - classpath:db/03-restaurants-and-tables.sql
+        - classpath:db/04-menus-and-options.sql
+        - classpath:db/05-reservations-and-reviews.sql
+        - classpath:db/06-orders-pos-kitchen.sql
+        - classpath:db/07-notifications-and-logs.sql
+        - classpath:db/08-mock-restaurants.sql
+        - classpath:db/09-mock-menus.sql
+
+# Cấu hình JWT (Bắt buộc phải có để JwtProperties.java không bị lỗi)
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    accessTokenExpirationMs: 86400000    # 1 ngày
+    refreshTokenExpirationMs: 604800000 # 7 ngày
+
+# Cấu hình để xem Swagger UI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.multipart: TRACE
+    org.apache.tomcat.util.http.fileupload: DEBUG
+    org.apache.catalina: DEBUG
+    org.apache.tomcat: DEBUG
+    com.dineease: DEBUG
+    org.springframework.mail: DEBUG
+
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME}
+  api-key: ${CLOUDINARY_API_KEY}
+  api-secret: ${CLOUDINARY_API_SECRET}
+
+vnpay:
+  pay-url: "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
+  tmn-code: "720ENBRM" 
+  hash-secret: ${VNPAY_HASH_SECRET}
+  return-url: "http://localhost:8090/api/v1/payments/vnpay-return"
