@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dine Ease - Hệ Thống Quản Trị</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2318;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E7E5E4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-white border-r border-stone-100 flex flex-col shrink-0">
+        <div class="p-8">
+            <div class="flex items-center gap-3 text-amber-600 font-bold text-2xl">
+                <div class="p-2 bg-amber-100 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                </div>
+                <span>Dine Ease</span>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl bg-amber-500 text-white font-medium shadow-lg shadow-amber-500/20 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                Tổng quan
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Duyệt đối tác
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>
+                QL Nhà hàng
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a1 1 0 0 1 1 1v1h3V9a1 1 0 0 1 1-1h3V5a1 1 0 0 1 1-1h3V1a1 1 0 0 1 1-1"/><path d="M21 21H3"/></svg>
+                DM Cuisine
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">
+                <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+                Thông báo
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 hover:text-stone-800 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                Cấu hình
+            </a>
+        </nav>
+
+        <div class="p-6">
+            <div class="bg-stone-50 rounded-2xl p-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" alt="Admin">
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-semibold truncate">Admin User</p>
+                    <p class="text-xs text-stone-500">Super Administrator</p>
+                </div>
+                <button class="text-stone-400 hover:text-amber-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 h-screen">
+        
+        <!-- Top Header -->
+        <header class="h-20 shrink-0 glass sticky top-0 z-30 px-8 flex items-center justify-between border-b border-stone-100">
+            <div class="flex-1 max-w-xl">
+                <div class="relative group">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-stone-400 group-focus-within:text-amber-500 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </span>
+                    <input type="text" placeholder="Tìm kiếm nhà hàng, mã đơn hàng..." class="w-full bg-stone-100/50 border-transparent rounded-xl py-2.5 pl-12 pr-4 focus:bg-white focus:ring-2 focus:ring-amber-400 focus:border-amber-500 transition-all outline-none text-sm">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-full text-green-700 text-xs font-semibold">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Online
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 text-stone-500 hover:bg-stone-100 rounded-xl transition-all relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <span class="absolute top-1 right-1 bg-amber-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">3</span>
+                    </button>
+                    <button class="p-2 text-stone-500 hover:bg-stone-100 rounded-xl transition-all relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span class="absolute top-1 right-1 bg-amber-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">5</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+            
+            <!-- Page Heading & Filters -->
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-[#2D2318] mb-1">TỔNG QUAN HỆ THỐNG</h1>
+                    <p class="text-stone-500">Báo cáo hoạt động kinh doanh toàn nền tảng</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-stone-100 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                        <span class="text-sm font-medium">01/10/2026 - 31/10/2026</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <button onclick="toggleExportModal()" class="flex items-center gap-2 bg-stone-800 text-white px-5 py-2.5 rounded-xl font-medium hover:bg-stone-900 transition-all shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                        Xuất báo cáo
+                    </button>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-amber-50 text-amber-600 rounded-xl group-hover:bg-amber-500 group-hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-lg">↑ 12.5%</span>
+                    </div>
+                    <h3 class="text-stone-500 text-xs font-bold uppercase tracking-wider mb-1">Tổng doanh thu HH</h3>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold">150.000.000</span>
+                        <span class="text-sm font-semibold text-stone-400">VNĐ</span>
+                    </div>
+                    <p class="text-[10px] text-stone-400 mt-3 font-medium">So với tháng 9: 132.5M VNĐ</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-xl group-hover:bg-blue-500 group-hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12 3 9l3-3"/><path d="m18 12 3-3-3-3"/><rect width="20" height="8" x="2" y="13" rx="2"/><path d="M12 13v8"/></svg>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-lg">↑ 12.5%</span>
+                    </div>
+                    <h3 class="text-stone-500 text-xs font-bold uppercase tracking-wider mb-1">Tổng đơn thành công</h3>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold">3,245</span>
+                        <span class="text-sm font-semibold text-stone-400">Đơn</span>
+                    </div>
+                    <p class="text-[10px] text-stone-400 mt-3 font-medium">So với tháng 9: 2,884 Đơn</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-purple-50 text-purple-600 rounded-xl group-hover:bg-purple-500 group-hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-lg">↑ 12.5%</span>
+                    </div>
+                    <h3 class="text-stone-500 text-xs font-bold uppercase tracking-wider mb-1">Nhà hàng hoạt động</h3>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold">128</span>
+                        <span class="text-sm font-semibold text-stone-400">Quán</span>
+                    </div>
+                    <p class="text-[10px] text-stone-400 mt-3 font-medium">So với tháng 9: 114 Quán</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-red-50 text-red-600 rounded-xl group-hover:bg-red-500 group-hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-lg">↑ 12.5%</span>
+                    </div>
+                    <h3 class="text-stone-500 text-xs font-bold uppercase tracking-wider mb-1">Yêu cầu duyệt</h3>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold">12</span>
+                        <span class="text-sm font-semibold text-stone-400">Hồ sơ</span>
+                    </div>
+                    <p class="text-[10px] text-stone-400 mt-3 font-medium">Đang chờ xử lý: 8 Hồ sơ</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <!-- Main Line Chart -->
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-stone-100 shadow-sm">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <h2 class="text-xl font-bold">XU HƯỚNG KINH DOANH</h2>
+                            <p class="text-sm text-stone-500">Biến động doanh thu theo ngày</p>
+                        </div>
+                        <div class="flex items-center gap-4 text-xs font-medium">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                                Doanh thu
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                Số đơn
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SVG Chart Mockup -->
+                    <div class="h-64 relative flex items-end justify-between px-2 pt-10">
+                        <div class="absolute inset-0 flex flex-col justify-between py-2 text-[10px] text-stone-400 pointer-events-none">
+                            <div class="border-b border-stone-50 w-full h-0 flex items-center justify-end">100M</div>
+                            <div class="border-b border-stone-50 w-full h-0 flex items-center justify-end">75M</div>
+                            <div class="border-b border-stone-50 w-full h-0 flex items-center justify-end">50M</div>
+                            <div class="border-b border-stone-50 w-full h-0 flex items-center justify-end">25M</div>
+                            <div class="border-b border-stone-50 w-full h-0 flex items-center justify-end">0</div>
+                        </div>
+                        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                            <path d="M0,180 Q100,200 200,140 T400,100 T600,160 T800,80" fill="none" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" />
+                            <path d="M0,220 Q150,210 300,230 T600,200 T800,220" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 4" />
+                        </svg>
+                        <!-- Interaction Tooltip Mockup -->
+                        <div class="absolute top-10 left-[60%] -translate-x-1/2 bg-stone-800 text-white text-[10px] p-2 rounded-lg shadow-xl z-10">
+                            <p class="font-bold border-b border-stone-600 mb-1 pb-1">Ngày 18/10</p>
+                            <p>Doanh thu: 12.5M</p>
+                            <p>Đơn: 245</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4 text-[10px] text-stone-400 font-bold px-2">
+                        <span>1/10</span>
+                        <span>5/10</span>
+                        <span>10/10</span>
+                        <span>15/10</span>
+                        <span>20/10</span>
+                        <span>25/10</span>
+                        <span>31/10</span>
+                    </div>
+                </div>
+
+                <!-- Pie Chart -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm">
+                    <h2 class="text-xl font-bold mb-1">TỈ LỆ ĐẶT BÀN</h2>
+                    <p class="text-sm text-stone-500 mb-8">Theo loại hình Cuisine</p>
+                    <div class="flex flex-col items-center">
+                        <div class="w-48 h-48 rounded-full relative overflow-hidden" style="background: conic-gradient(#F59E0B 0% 35%, #60A5FA 35% 60%, #10B981 60% 80%, #F87171 80% 100%);">
+                            <div class="absolute inset-8 bg-white rounded-full shadow-inner flex flex-center items-center justify-center">
+                                <div class="text-center">
+                                    <p class="text-sm font-bold">Tổng</p>
+                                    <p class="text-lg font-black text-amber-500">3,245</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 grid grid-cols-2 gap-x-8 gap-y-3 w-full">
+                            <div class="flex items-center gap-2 text-xs font-semibold">
+                                <span class="w-3 h-3 rounded bg-amber-500"></span>
+                                Việt Nam (35%)
+                            </div>
+                            <div class="flex items-center gap-2 text-xs font-semibold">
+                                <span class="w-3 h-3 rounded bg-blue-400"></span>
+                                Nhật Bản (25%)
+                            </div>
+                            <div class="flex items-center gap-2 text-xs font-semibold">
+                                <span class="w-3 h-3 rounded bg-green-500"></span>
+                                Hàn Quốc (20%)
+                            </div>
+                            <div class="flex items-center gap-2 text-xs font-semibold">
+                                <span class="w-3 h-3 rounded bg-red-400"></span>
+                                Âu Mỹ (20%)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rankings Tables -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Top Revenue -->
+                <div class="bg-white rounded-3xl border border-stone-100 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-stone-50 flex items-center justify-between">
+                        <h2 class="text-lg font-bold">TOP 5 DOANH THU NHÀ HÀNG</h2>
+                        <button class="text-amber-500 text-xs font-bold hover:underline">Xem tất cả</button>
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-stone-50/50 text-stone-500 text-[10px] uppercase tracking-widest font-bold">
+                                <th class="px-6 py-4">#</th>
+                                <th class="px-6 py-4">Tên Nhà Hàng</th>
+                                <th class="px-6 py-4 text-right">Hoa Hồng</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-50">
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-amber-500">01</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600 font-black">🥇</div>
+                                    <span class="font-bold text-sm">Hải Sản Biển Đông</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-sm">15.200.000 đ</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">02</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-stone-100 flex items-center justify-center text-stone-600 font-black">🥈</div>
+                                    <span class="font-bold text-sm">Kichi Kichi QI</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-sm">12.500.000 đ</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">03</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600 font-black">🥉</div>
+                                    <span class="font-bold text-sm">Pizza 4P's</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-sm">10.100.000 đ</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">04</td>
+                                <td class="px-6 py-4 flex items-center gap-3 pl-11">
+                                    <span class="font-semibold text-sm">Manwah Thái Hà</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-sm">9.800.000 đ</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">05</td>
+                                <td class="px-6 py-4 flex items-center gap-3 pl-11">
+                                    <span class="font-semibold text-sm">Gogi House</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-sm">8.500.000 đ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Top Cancellations -->
+                <div class="bg-white rounded-3xl border border-stone-100 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-stone-50 flex items-center justify-between">
+                        <h2 class="text-lg font-bold">NHÀ HÀNG HỦY BÀN NHIỀU NHẤT</h2>
+                        <span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-bold rounded">CẢNH BÁO</span>
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-stone-50/50 text-stone-500 text-[10px] uppercase tracking-widest font-bold">
+                                <th class="px-6 py-4">#</th>
+                                <th class="px-6 py-4">Tên Nhà Hàng</th>
+                                <th class="px-6 py-4 text-right">Tỉ Lệ Hủy</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-50">
+                            <tr class="hover:bg-red-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">01</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-stone-100">
+                                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="font-bold text-sm">Sushi Hokkaido</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-red-500 text-sm">45 đơn</td>
+                            </tr>
+                            <tr class="hover:bg-red-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">02</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-stone-100">
+                                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="font-bold text-sm">Bò Né 3 Ngon</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-red-400 text-sm">38 đơn</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">03</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-stone-100">
+                                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="font-bold text-sm">Lẩu Cua Đất Mũi</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-stone-700 text-sm">25 đơn</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">04</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-stone-100">
+                                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="font-bold text-sm">San Fu Lou</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-stone-700 text-sm">12 đơn</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50 transition-colors">
+                                <td class="px-6 py-4 font-bold text-stone-400">05</td>
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-stone-100">
+                                        <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover">
+                                    </div>
+                                    <span class="font-bold text-sm">Trống Đồng Palace</span>
+                                </td>
+                                <td class="px-6 py-4 text-right font-black text-stone-700 text-sm">8 đơn</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Export Modal Backdrop -->
+    <div id="exportModal" class="hidden fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <!-- Modal Card -->
+        <div class="bg-white rounded-3xl w-full max-w-md overflow-hidden shadow-2xl border border-stone-100 transform scale-100 transition-all">
+            <div class="p-8 text-center border-b border-stone-50">
+                <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                </div>
+                <h2 class="text-2xl font-black text-[#2D2318]">Xuất báo cáo</h2>
+                <p class="text-stone-500 mt-2">Chọn định dạng tệp bạn muốn tải xuống</p>
+            </div>
+            
+            <div class="p-6 space-y-4">
+                <button class="w-full group flex items-center justify-between p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:border-amber-400 hover:bg-amber-50/50 transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2.5 bg-green-100 text-green-700 rounded-xl group-hover:bg-green-200 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h2"/><path d="M8 17h2"/><path d="M14 13h2"/><path d="M14 17h2"/></svg>
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold text-stone-800">Microsoft Excel</p>
+                            <p class="text-xs text-stone-500">.xlsx (Dữ liệu đầy đủ nhất)</p>
+                        </div>
+                    </div>
+                    <div class="w-6 h-6 rounded-full border-2 border-amber-400 flex items-center justify-center">
+                        <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
+                    </div>
+                </button>
+
+                <button class="w-full group flex items-center justify-between p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:border-amber-400 hover:bg-amber-50/50 transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2.5 bg-red-100 text-red-700 rounded-xl group-hover:bg-red-200 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6"/></svg>
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold text-stone-800">PDF Document</p>
+                            <p class="text-xs text-stone-500">.pdf (Dành cho trình bày)</p>
+                        </div>
+                    </div>
+                    <div class="w-6 h-6 rounded-full border-2 border-stone-200"></div>
+                </button>
+            </div>
+
+            <div class="p-6 bg-stone-50 flex gap-3">
+                <button onclick="toggleExportModal()" class="flex-1 px-6 py-4 rounded-2xl font-bold text-stone-500 hover:bg-stone-200 transition-all">Hủy</button>
+                <button onclick="toggleExportModal()" class="flex-1 px-6 py-4 rounded-2xl font-bold bg-amber-500 text-white hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/30">Xuất Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleExportModal() {
+            const modal = document.getElementById('exportModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

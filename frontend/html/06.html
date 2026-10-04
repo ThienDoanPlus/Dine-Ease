@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dine Ease - Danh Mục Ẩm Thực</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2318;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .sidebar-item-active {
+            background-color: #F59E0B;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.25);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E7E5E4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-white border-r border-stone-200 flex flex-col shrink-0 z-30">
+        <div class="p-8">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tight text-stone-800">Dine Ease</span>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                <span class="font-semibold">Tổng quan</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span class="font-semibold">Duyệt đối tác</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>
+                <span class="font-semibold">QL Nhà hàng</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl sidebar-item-active transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 11 6a7 7 0 0 1 0 14Z"/><path d="M11 9v4"/><path d="M11 17h.01"/><path d="M20 15v2a2 2 0 0 1-2 2H2"/><path d="M4 11V9a2 2 0 0 1 2-2h10"/></svg>
+                <span class="font-semibold">DM Cuisine</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 transition-all">
+                <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+                <span class="font-semibold">Thông báo</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-stone-500 hover:bg-stone-50 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1V11a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V13a1.65 1.65 0 0 0 1 1.51V15a2 2 0 0 1 2 2 2 2 0 0 1 2-2v-.09a1.65 1.65 0 0 0 1-1.51 1.65 1.65 0 0 0 1.82.33l.06.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0-2.83l-.06-.06a1.65 1.65 0 0 0-.33-1.82V9a1.65 1.65 0 0 0 1.51-1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span class="font-semibold">Cấu hình</span>
+            </a>
+        </nav>
+
+        <div class="p-6 mt-auto">
+            <div class="bg-stone-50 rounded-2xl p-4 flex items-center gap-3 border border-stone-100 shadow-sm">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Admin">
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold text-stone-800 truncate">Administrator</p>
+                    <p class="text-[11px] font-medium text-stone-500 uppercase tracking-tighter">Super Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+        
+        <!-- Header -->
+        <header class="h-20 flex items-center justify-between px-10 sticky top-0 z-20 glass border-b border-stone-100">
+            <div class="flex-1 max-w-xl">
+                <div class="relative group">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-stone-400 group-focus-within:text-amber-500 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </span>
+                    <input type="text" placeholder="Tìm kiếm nhà hàng, mã đơn hàng..." class="w-full bg-stone-100 border-none rounded-xl py-2.5 pl-12 pr-4 focus:bg-white focus:ring-2 focus:ring-amber-400 transition-all outline-none text-sm font-medium">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-full border border-green-100">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-[11px] font-bold text-green-700 uppercase">Hệ thống Online</span>
+                </div>
+                <div class="flex items-center gap-4 border-l border-stone-200 pl-8">
+                    <button class="p-2 text-stone-500 hover:bg-stone-100 rounded-xl transition-all relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full border-2 border-white"></span>
+                    </button>
+                    <button class="p-2 text-stone-500 hover:bg-stone-100 rounded-xl transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="flex-1 overflow-y-auto p-10 custom-scrollbar">
+            
+            <!-- Page Title & Primary Action -->
+            <div class="flex items-end justify-between mb-10">
+                <div>
+                    <h1 class="text-3xl font-extrabold text-stone-800 tracking-tight uppercase">Danh Mục Ẩm Thực (Cuisine)</h1>
+                    <p class="text-stone-500 font-medium mt-1">Quản lý các thẻ phân loại nhà hàng/món ăn hiển thị trên ứng dụng khách hàng.</p>
+                </div>
+                <button onclick="document.getElementById('addModal').classList.remove('hidden')" class="flex items-center gap-2 bg-stone-800 text-white px-6 py-3.5 rounded-2xl font-bold hover:bg-stone-900 transition-all shadow-xl shadow-stone-200 active:scale-95">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                    Thêm danh mục mới
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="bg-white rounded-[2rem] border border-stone-100 shadow-sm overflow-hidden flex flex-col">
+                
+                <!-- Search Table Bar -->
+                <div class="p-6 border-b border-stone-50 bg-stone-50/30 flex items-center justify-between">
+                    <div class="relative w-80">
+                        <span class="absolute inset-y-0 left-4 flex items-center text-stone-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        </span>
+                        <input type="text" placeholder="Tìm kiếm tên danh mục..." class="w-full bg-white border border-stone-200 rounded-xl py-2 pl-10 pr-4 focus:ring-2 focus:ring-amber-400 transition-all outline-none text-sm font-medium">
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-stone-400 font-bold text-[10px] uppercase tracking-widest">Sắp xếp theo</span>
+                        <select class="bg-white border border-stone-200 rounded-xl py-2 px-4 text-xs font-bold text-stone-700 outline-none cursor-pointer">
+                            <option>Mới nhất</option>
+                            <option>Số nhà hàng (Giảm dần)</option>
+                            <option>Tên A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Table Content -->
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-stone-50/50 text-stone-500 text-[10px] uppercase tracking-widest font-black">
+                            <th class="px-8 py-5 border-b border-stone-100">ID</th>
+                            <th class="px-8 py-5 border-b border-stone-100">Icon</th>
+                            <th class="px-8 py-5 border-b border-stone-100">Tên Danh Mục</th>
+                            <th class="px-8 py-5 border-b border-stone-100">Số Nhà Hàng Đang Dùng</th>
+                            <th class="px-8 py-5 border-b border-stone-100 text-center">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-50">
+                        <tr class="hover:bg-amber-50/20 transition-all group">
+                            <td class="px-8 py-5 text-sm font-bold text-stone-400">01</td>
+                            <td class="px-8 py-5">
+                                <div class="w-12 h-12 rounded-2xl overflow-hidden shadow-sm border border-stone-100 group-hover:scale-110 transition-transform duration-300">
+                                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=200&fit=crop" class="w-full h-full object-cover" alt="Sushi">
+                                </div>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="font-extrabold text-stone-800">Món Nhật Bản</span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">45 nhà hàng</span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <div class="flex items-center justify-center gap-3">
+                                    <button class="p-2.5 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-xl transition-all" title="Sửa"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 00 2 2h14a2 2 0 00 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-stone-800 hover:bg-stone-50 rounded-xl transition-all" title="Xem"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all" title="Xóa"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-50/20 transition-all group">
+                            <td class="px-8 py-5 text-sm font-bold text-stone-400">02</td>
+                            <td class="px-8 py-5">
+                                <div class="w-12 h-12 rounded-2xl overflow-hidden shadow-sm border border-stone-100 group-hover:scale-110 transition-transform duration-300">
+                                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=200&fit=crop" class="w-full h-full object-cover" alt="Steak">
+                                </div>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="font-extrabold text-stone-800">Đồ Âu (Western)</span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">32 nhà hàng</span>
+                            </td>
+                            <td class="px-8 py-5 text-center">
+                                <div class="flex items-center justify-center gap-3">
+                                    <button class="p-2.5 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 00 2 2h14a2 2 0 00 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-stone-800 hover:bg-stone-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-50/20 transition-all group">
+                            <td class="px-8 py-5 text-sm font-bold text-stone-400">03</td>
+                            <td class="px-8 py-5">
+                                <div class="w-12 h-12 rounded-2xl overflow-hidden shadow-sm border border-stone-100 group-hover:scale-110 transition-transform duration-300">
+                                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=200&fit=crop" class="w-full h-full object-cover" alt="Vegetarian">
+                                </div>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="font-extrabold text-stone-800">Ăn Chay (Vegetarian)</span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">18 nhà hàng</span>
+                            </td>
+                            <td class="px-8 py-5 text-center">
+                                <div class="flex items-center justify-center gap-3">
+                                    <button class="p-2.5 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 00 2 2h14a2 2 0 00 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-stone-800 hover:bg-stone-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-50/20 transition-all group">
+                            <td class="px-8 py-5 text-sm font-bold text-stone-400">04</td>
+                            <td class="px-8 py-5">
+                                <div class="w-12 h-12 rounded-2xl overflow-hidden shadow-sm border border-stone-100 group-hover:scale-110 transition-transform duration-300">
+                                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop" class="w-full h-full object-cover" alt="Mexico">
+                                </div>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="font-extrabold text-stone-800">Món Mexico</span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <span class="inline-flex items-center px-3 py-1 bg-stone-100 text-stone-500 text-xs font-bold rounded-full italic">0 nhà hàng</span>
+                            </td>
+                            <td class="px-8 py-5 text-center">
+                                <div class="flex items-center justify-center gap-3">
+                                    <button class="p-2.5 text-stone-400 hover:text-amber-500 hover:bg-amber-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 00 2 2h14a2 2 0 00 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-stone-800 hover:bg-stone-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                                    <button class="p-2.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="px-8 py-5 bg-stone-50/50 flex items-center justify-between">
+                    <p class="text-sm font-bold text-stone-500">Hiển thị <span class="text-stone-800">1 - 10</span> của <span class="text-stone-800">128</span> danh mục</p>
+                    <div class="flex items-center gap-2">
+                        <button class="px-4 py-2 text-xs font-bold text-stone-400 hover:text-stone-700 bg-white border border-stone-200 rounded-xl transition-all">Trước</button>
+                        <div class="flex items-center gap-1">
+                            <button class="w-9 h-9 flex items-center justify-center rounded-xl bg-amber-500 text-white font-bold text-xs shadow-md">1</button>
+                            <button class="w-9 h-9 flex items-center justify-center rounded-xl text-stone-500 hover:bg-white transition-all font-bold text-xs">2</button>
+                            <button class="w-9 h-9 flex items-center justify-center text-stone-300 font-bold text-xs">...</button>
+                            <button class="w-9 h-9 flex items-center justify-center rounded-xl text-stone-500 hover:bg-white transition-all font-bold text-xs">13</button>
+                        </div>
+                        <button class="px-4 py-2 text-xs font-bold text-white bg-stone-800 hover:bg-stone-900 rounded-xl transition-all shadow-md">Sau</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal: Thêm Danh Mục Mới -->
+    <div id="addModal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 hidden">
+        <div class="absolute inset-0 bg-stone-900/40 backdrop-blur-sm" onclick="this.parentElement.classList.add('hidden')"></div>
+        <div class="relative w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl border border-stone-100 overflow-hidden animate-in fade-in zoom-in duration-300">
+            <!-- Modal Header -->
+            <div class="p-8 border-b border-stone-50 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                    </div>
+                    <h2 class="text-2xl font-black text-stone-800 tracking-tight uppercase">Thêm Danh Mục Mới</h2>
+                </div>
+                <button onclick="document.getElementById('addModal').classList.add('hidden')" class="p-2 text-stone-400 hover:text-stone-800 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-10 space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+                    <!-- Icon Upload Section -->
+                    <div class="md:col-span-2 space-y-4">
+                        <label class="flex items-center gap-2 text-xs font-black text-stone-500 uppercase tracking-widest">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Upload Icon
+                        </label>
+                        <div class="relative group aspect-square rounded-3xl bg-stone-50 border-2 border-dashed border-stone-200 flex flex-col items-center justify-center cursor-pointer hover:border-amber-400 hover:bg-amber-50 transition-all overflow-hidden shadow-inner">
+                            <img id="preview" src="" class="absolute inset-0 w-full h-full object-cover hidden">
+                            <div class="text-center p-6 space-y-2 group-hover:scale-110 transition-transform duration-300">
+                                <p class="text-amber-500 font-extrabold text-sm">Chọn ảnh +</p>
+                                <p class="text-[10px] font-bold text-stone-400 italic">(Tỉ lệ 1 : 1, < 2MB)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category Name Input -->
+                    <div class="md:col-span-3 space-y-4">
+                        <label class="flex items-center gap-2 text-xs font-black text-stone-500 uppercase tracking-widest">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 00 2 2h11a2 2 0 00 2-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                            Tên danh mục ẩm thực (*)
+                        </label>
+                        <input type="text" placeholder="Nhập tên danh mục (VD: Món Hàn Quốc, Trà Sữa...)" class="w-full bg-stone-50 border border-stone-200 rounded-2xl py-4 px-6 text-sm font-bold text-stone-800 placeholder:text-stone-300 outline-none focus:ring-2 focus:ring-amber-400 transition-all">
+                        <p class="text-[10px] font-medium text-stone-400">Tên này sẽ xuất hiện trực tiếp trong ứng dụng của Khách hàng.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-8 bg-stone-50/50 flex items-center justify-end gap-4">
+                <button onclick="document.getElementById('addModal').classList.add('hidden')" class="px-8 py-3.5 rounded-2xl font-bold text-stone-500 hover:bg-stone-100 transition-all uppercase text-xs tracking-widest">Hủy bỏ</button>
+                <button class="px-10 py-3.5 bg-amber-500 text-white rounded-2xl font-black shadow-xl shadow-amber-200 hover:bg-amber-600 transition-all active:scale-95 uppercase text-xs tracking-widest">Lưu Danh Mục</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
