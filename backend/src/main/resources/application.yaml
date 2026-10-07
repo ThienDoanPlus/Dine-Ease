@@ -15,7 +15,7 @@ spring:
     open-in-view: false
     hibernate:
       # 'update' giúp tự động tạo bảng từ các file Entity (User, Cuisine...) bạn đã viết
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true        # In các câu lệnh SQL ra console để dễ theo dõi
     properties:
       hibernate:
