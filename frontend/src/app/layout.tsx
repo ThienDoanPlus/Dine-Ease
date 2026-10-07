@@ -5,6 +5,9 @@ import QueryProvider from "@/providers/QueryProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { Toaster } from "sonner";
 
+export const dynamic = "force-dynamic";
+
+
 const inter = Inter({ subsets: ["latin", "vietnamese"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin", "vietnamese"], variable: "--font-playfair" });
 
