@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import React from "react";
 import Link from "next/link";
 import { LoginForm } from "@/components/customer/auth/LoginForm";
@@ -20,7 +20,9 @@ export default function LoginPage() {
       <p className="mb-10 text-sm text-stone-400">Vui lòng đăng nhập để tiếp tục</p>
 
       {/* Form */}
-      <LoginForm />
+      <Suspense fallback={<div className="py-4 text-sm text-stone-500">Đang tải...</div>}>
+        <LoginForm />
+      </Suspense>
 
       {/* Chuyển sang Đăng ký */}
       <p className="mt-8 text-sm font-medium text-stone-500">
