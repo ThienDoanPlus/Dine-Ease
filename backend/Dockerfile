@@ -12,4 +12,4 @@ COPY --from=build /app/target/*.jar app.jar
 
 # Render sẽ tự động bắt cổng này
 EXPOSE 8090
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Djava.net.preferIPv4Stack=true", "-jar", "app.jar"]
