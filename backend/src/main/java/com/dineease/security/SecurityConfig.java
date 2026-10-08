@@ -82,7 +82,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // Cho phép Frontend ReactJS/NextJS truy cập (bao gồm cả localhost và IP LAN)
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
         // Cho phép các method HTTP
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         // Cho phép các Header (đặc biệt là Authorization để chứa JWT)
