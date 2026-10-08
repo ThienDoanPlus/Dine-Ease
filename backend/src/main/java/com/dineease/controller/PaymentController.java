@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.dineease.dto.PaymentUrlResponse;
 import com.dineease.service.PaymentService;
@@ -24,11 +25,13 @@ public class PaymentController {
     private final PaymentService paymentService;
     
     // [CỦA YẾN]: URL của Frontend ReactJS
-    private final String FRONTEND_URL = "http://localhost:3000"; 
+    @Value("${app.frontend.url:http://localhost:3000}")
+    private String FRONTEND_URL; 
 
     public PaymentController(PaymentService paymentService) {
         this.paymentService = paymentService;
     }
+    
 
     @Operation(summary = "Tạo Link Thanh toán VNPay", description = "Tạo URL để chuyển hướng khách sang cổng VNPay.")
     @SecurityRequirement(name = "bearerAuth")
